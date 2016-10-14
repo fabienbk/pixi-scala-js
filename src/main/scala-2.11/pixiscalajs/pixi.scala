@@ -3,9 +3,12 @@ package pixiscalajs
 import org.scalajs.dom.raw._
 
 import scala.scalajs.js
-import scala.scalajs.js.annotation.JSName
+import scala.scalajs.js.annotation.{JSName, ScalaJSDefined}
 import scala.scalajs.js.typedarray.Uint16Array
 import scala.scalajs.js.|
+
+
+
 
 @js.native
 @JSName("PIXI.RENDERER_TYPE")
@@ -600,6 +603,12 @@ trait RendererOptions extends js.Object {
   var forceFXAA: Boolean = js.native
   var roundPixels: Boolean = js.native
   var backgroundColor: Double = js.native
+}
+
+object RendererOptions {
+  def apply(view: HTMLCanvasElement): RendererOptions = {
+    js.Dynamic.literal(view = view).asInstanceOf[RendererOptions]
+  }
 }
 
 @js.native
@@ -2022,8 +2031,12 @@ object PIXI extends js.Object {
   var FILTER_RESOLUTION: Double = js.native
   var SPRITE_BATCH_SIZE: Double = js.native
 
-  def autoDetectRenderer(width: Double, height: Double, options: RendererOptions = ???, noWebGL: Boolean = ???): SystemRenderer = js.native
+  def autoDetectRenderer(width: Double, height: Double, options: RendererOptions = null, noWebGL: Boolean = false): SystemRenderer = js.native
 
   var loader: loaders.Loader = js.native
+
 }
+
+
+
 

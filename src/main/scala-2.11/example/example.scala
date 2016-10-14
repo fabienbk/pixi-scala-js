@@ -1,7 +1,7 @@
 package example
 
-import org.scalajs.dom.document
-import pixiscalajs.{Container, PIXI}
+import org.scalajs.dom.{html, window}
+import pixiscalajs.{Container, Graphics, PIXI, RendererOptions}
 
 import scala.scalajs.js.annotation.JSExport
 
@@ -9,17 +9,24 @@ import scala.scalajs.js.annotation.JSExport
 object PixiScalaJSExample {
 
   @JSExport
-  def main(): Unit = {
-    val renderer = PIXI.autoDetectRenderer(256, 256);
+  def main(canvas: html.Canvas): Unit = {
+    val renderer = PIXI.autoDetectRenderer(800, 600, RendererOptions(canvas))
+    val stage = new Container()
+    val rnd = scala.util.Random
 
-    //Add the canvas to the HTML document
-    document.body.appendChild(renderer.view);
+    def loop(d: Double) {
+      val rect = new Graphics()
+      rect.beginFill(0xFFFF00)
+      rect.lineStyle(5, 0xFF0000)
+      rect.drawRect(rnd.nextInt(800), rnd.nextInt(600), 1, 1)
 
-    //Create a container object called the `stage`
-    val stage = new Container();
+      stage.addChild(rect)
+      renderer.render(stage)
 
-    //Tell the `renderer` to `render` the `stage`
-    renderer.render(stage);
+      window.requestAnimationFrame((d: Double) => loop(d))
+    }
+
+    loop(0)
   }
 
 }
