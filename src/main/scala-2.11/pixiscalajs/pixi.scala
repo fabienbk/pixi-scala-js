@@ -1,8 +1,9 @@
-package pixiscalajs
+package pixiscalajs.PIXI
 
 import org.scalajs.dom.raw._
 
 import scala.scalajs.js
+import scala.scalajs.js.JSConverters._
 import scala.scalajs.js.annotation.{JSName, ScalaJSDefined}
 import scala.scalajs.js.typedarray.Uint16Array
 import scala.scalajs.js.|
@@ -295,7 +296,7 @@ class Graphics extends Container {
 
   def drawEllipse(x: Double, y: Double, width: Double, height: Double): Graphics = js.native
 
-  def drawPolygon(path: js.Array[Double] | js.Array[Point]): Graphics = js.native
+  def drawPolygon(path: js.Array[Double]): Graphics = js.native
 
   def clear(): Graphics = js.native
 
@@ -2020,7 +2021,7 @@ package ticker {
 
 @JSName("PIXI")
 @js.native
-object PIXI extends js.Object {
+object Pixi extends js.Object {
   var VERSION: String = js.native
   var PI_2: Double = js.native
   var RAD_TO_DEG: Double = js.native
