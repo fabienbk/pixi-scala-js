@@ -1726,7 +1726,7 @@ package interaction {
   @js.native
   @JSName("PIXI.interaction.InteractionManager")
   class InteractionManager protected() extends js.Object {
-    def this(renderer: CanvasRenderer | WebGLRenderer, options: js.Any = ???) = this()
+    def this(renderer: SystemRenderer, options: js.Any = ???) = this()
 
     var interactionDOMElement: HTMLElement = js.native
     var eventsAdded: Boolean = js.native
