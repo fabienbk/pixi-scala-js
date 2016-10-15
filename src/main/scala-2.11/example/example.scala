@@ -2,7 +2,6 @@ package example
 
 import org.scalajs.dom.{html, window}
 import pixiscalajs.{Container, Graphics, PIXI, RendererOptions}
-
 import scala.scalajs.js.annotation.JSExport
 
 @JSExport
@@ -14,7 +13,7 @@ object PixiScalaJSExample {
     val stage = new Container()
     val rnd = scala.util.Random
 
-    def loop(d: Double) {
+    val loop: (Double) => Unit = { time =>
       val rect = new Graphics()
       rect.beginFill(0xFFFF00)
       rect.lineStyle(5, 0xFF0000)
@@ -23,10 +22,12 @@ object PixiScalaJSExample {
       stage.addChild(rect)
       renderer.render(stage)
 
-      window.requestAnimationFrame((d: Double) => loop(d))
+      window.requestAnimationFrame(loop)
     }
 
     loop(0)
   }
+
+
 
 }
