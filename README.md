@@ -17,7 +17,9 @@ I'm working on it :)
 
 ### Installation ###
 
-TBD
+Once you've setup your ScalaJS project, simply add this to your dependencies:
+
+    libraryDependencies += "com.fbksoft" %%% "pixi-scala-js" % "1.0"
 
 ### Demos ###
 
