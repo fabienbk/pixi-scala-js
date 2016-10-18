@@ -1,7 +1,9 @@
 Fabienbk's ScalaJS facade to Pixi.js
 ====================================
 
-The aim of this project is to provide a ScalaJS facade for [Pixi.js](http://www.pixijs.com/), a 2D library 
+[![Scala.js](https://www.scala-js.org/assets/badges/scalajs-0.6.8.svg)](https://www.scala-js.org)
+
+This project aims to provide a ScalaJS facade for [Pixi.js](http://www.pixijs.com/), a 2D library 
 that works across all devices.  Pixi.js has full 
 [WebGL](https://en.wikipedia.org/wiki/WebGL) support and seamlessly falls back 
 to HTML5's [canvas](https://en.wikipedia.org/wiki/Canvas_element) if needed. It's 
