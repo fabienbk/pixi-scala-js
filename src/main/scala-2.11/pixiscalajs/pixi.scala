@@ -388,7 +388,12 @@ class Point protected() extends js.Object {
 
   def equals(p: Point): Boolean = js.native
 
-  def set(x: Double = ???, y: Double = ???): Unit = js.native
+  def set(x: Double, y: Double): Unit = js.native
+}
+
+object Point {
+  def apply(x: Double, y:Double): Point = new Point(x, y)
+
 }
 
 @js.native
