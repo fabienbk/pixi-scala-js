@@ -15,23 +15,26 @@ case class KeyBinding(keyCode : Int) {
 
   val downHandler = (event: KeyboardEvent) => {
     if (event.keyCode == keyCode) {
-      if (isUp && press != null) press();
-      isDown = true;
-      isUp = false;
+      if (isUp && press != null) {
+        press()
+      }
+      isDown = true
+      isUp = false
     }
-    event.preventDefault();
+    event.preventDefault()
   }
 
   val upHandler = (event: KeyboardEvent) => {
     if (event.keyCode == keyCode) {
-      if (isDown && release != null) release();
-      isDown = false;
-      isUp = true;
+      if (isDown && release != null) {
+        release()
+      }
+      isDown = false
+      isUp = true
     }
     event.preventDefault();
   };
 
   window.addEventListener("keydown", downHandler, false)
   window.addEventListener("keyup", upHandler, false)
-
 }

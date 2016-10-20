@@ -14,9 +14,12 @@ abstract class GameObject(x: Int, y: Int) extends Drawable {
   var speed = Point2D.Zero
 
   def update(deltaTime : Long) {
-    if (speed.sqrMagnitude() < 1) {
-      speed += acceleration * deltaTime * 0.1
-    }
+    speed += acceleration * deltaTime * 0.01
+
+    /*if (speed.magnitude() > 1) {
+      speed = speed.normalized()
+    }*/
+
     position += speed
   }
 }
@@ -35,13 +38,12 @@ abstract class SpriteGameObject(image: String, x: Int, y: Int) extends GameObjec
 }
 
 case class Ship(x: Int, y: Int) extends SpriteGameObject("/PNG/playerShip1_blue.png", x: Int, y: Int) {
-  def cutEngine: () => Unit = {
+  def cutEngine() {
     acceleration = Point2D.Zero
   }
 
   override def update(deltaTime: Long) {
     super.update(deltaTime)
-    sprite.rotation += 0.1
   }
 }
 

@@ -8,11 +8,10 @@ import pixiscalajs.PIXI.Point
   */
 case class Point2D(var x : Double, var y : Double) {
 
-  def sqrMagnitude(): Double = x*x+y*y
-
   def +(point : Point2D) = Point2D(x + point.x, y + point.y)
   def -(point : Point2D) = Point2D(x - point.x, y - point.y)
   def *(k : Double) = Point2D(x * k, y * k)
+  def /(k : Double) = Point2D(x / k, y / k)
 
   def add(x: Double, y:Double) : Point2D = {
     this.x += x; this.y += y; this
@@ -23,7 +22,9 @@ case class Point2D(var x : Double, var y : Double) {
   def mul(k: Double) : Point2D = {
     this.x *= k; this.y *= k; this
   }
-
+  def sqrMagnitude(): Double = x*x+y*y
+  def magnitude(): Double = Math.sqrt(x*x+y*y)
+  def normalized(): Point2D = this / magnitude()
 }
 
 object Point2D {
