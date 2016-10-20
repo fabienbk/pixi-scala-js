@@ -1,39 +1,54 @@
 package example.asteroid
 
 import pixiscalajs.PIXI
+import pixiscalajs.PIXI.Point
+import pixiscalajs.extensions.Point2D
 
 sealed trait Drawable {
   def draw() : PIXI.DisplayObject
 }
 
 abstract class GameObject(x: Int, y: Int) extends Drawable {
-  def update() : Double
+  var acceleration = Point2D.Zero
+  var position = Point2D(x, y)
+  var speed = Point2D.Zero
+
+  def update(deltaTime : Long) {
+    if (speed.sqrMagnitude() < 1) {
+      speed += acceleration * deltaTime * 0.1
+    }
+    position += speed
+  }
 }
 
 abstract class SpriteGameObject(image: String, x: Int, y: Int) extends GameObject(x,y) {
   val sprite = PIXI.Sprite.fromImage(AsteroidGame.RESOURCES_ROOT + image)
+  sprite.anchor = Point(0.5, 0.5)
+
   override def draw() = sprite
+
+  override def update(deltaTime: Long): Unit = {
+    super.update(deltaTime)
+    sprite.x = position.x
+    sprite.y = position.y
+  }
 }
 
 case class Ship(x: Int, y: Int) extends SpriteGameObject("/PNG/playerShip1_blue.png", x: Int, y: Int) {
-  override def update(): Double = {
-    sprite.position.x = x;
-    sprite.position.y = y;
-    sprite.anchor.x = 0.5
-    sprite.anchor.y = 0.5
+  def cutEngine: () => Unit = {
+    acceleration = Point2D.Zero
+  }
+
+  override def update(deltaTime: Long) {
+    super.update(deltaTime)
     sprite.rotation += 0.1
-    return sprite.rotation
   }
 }
 
 case class Asteroid(x: Int, y: Int) extends SpriteGameObject("/PNG/Meteors/meteorBrown_big1.png", x: Int, y: Int) {
-  override def update(): Double = {
-    sprite.position.x = x;
-    sprite.position.y = y;
-    sprite.anchor.x = 0.5
-    sprite.anchor.y = 0.5
+  override def update(deltaTime: Long) {
+    super.update(deltaTime)
     sprite.rotation += 0.01
-    return sprite.rotation
   }
 }
 

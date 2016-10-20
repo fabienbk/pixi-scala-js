@@ -2,7 +2,7 @@ package example.asteroid
 
 import pixiscalajs.PIXI
 import pixiscalajs.PIXI.SystemRenderer
-import pixiscalajs.extensions.{AnimationLoop, DefineLoop}
+import pixiscalajs.extensions.DefineLoop
 
 import scala.collection.mutable.ArrayBuffer
 
@@ -18,9 +18,12 @@ class World(renderer : SystemRenderer) {
     height = renderer.height
   }
 
-  def updateAllChildren(): Unit = {
-    objects.foreach(_.update())
-    return objects.size
+  var latestTimestamp = 0L
+
+  def updateAllChildren() {
+    val deltaTime = System.currentTimeMillis() - latestTimestamp
+    latestTimestamp = System.currentTimeMillis()
+    objects.foreach(_.update(deltaTime))
   }
 
   def add(gameObject: GameObject) : World = {
@@ -29,7 +32,7 @@ class World(renderer : SystemRenderer) {
     this
   }
 
-  val loop = AnimationLoop {
+  val loop = DefineLoop {
     updateAllChildren()
     renderer.render(stage)
   }
