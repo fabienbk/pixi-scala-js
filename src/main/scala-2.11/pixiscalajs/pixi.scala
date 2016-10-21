@@ -1101,10 +1101,16 @@ trait TextStyle extends js.Object {
   var miterLimit: Double = js.native
 }
 
+object TextStyle {
+  def apply(fill: String): TextStyle = {
+    js.Dynamic.literal(fill=fill).asInstanceOf[TextStyle]
+  }
+}
+
 @js.native
 @JSName("PIXI.Text")
 class Text protected() extends Sprite {
-  def this(text: String = ???, style: TextStyle = ???, resolution: Double = ???) = this()
+  def this(text: String = "", style: TextStyle = ???, resolution: Double = ???) = this()
 
   var _text: String = js.native
   var _style: TextStyle = js.native

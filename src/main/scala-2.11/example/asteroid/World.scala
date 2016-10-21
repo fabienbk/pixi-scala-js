@@ -27,7 +27,7 @@ class World(renderer : SystemRenderer) {
   }
 
   def add(gameObject: GameObject) : World = {
-    stage.addChild(gameObject.draw())
+    gameObject.draw().foreach(stage.addChild(_))
     objects += gameObject
     this
   }

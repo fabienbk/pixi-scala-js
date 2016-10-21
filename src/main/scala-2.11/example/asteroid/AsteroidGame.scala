@@ -31,13 +31,13 @@ class AsteroidGame {
 
     println("Starting loop")
 
-    Keyboard.bind(39, () => ship.acceleration += Point2D(1, 0), ship.cutEngine)  // right
-    Keyboard.bind(37, () => ship.acceleration += Point2D(-1, 0), ship.cutEngine)   // left
-    Keyboard.bind(38, () => ship.acceleration += Point2D(0, -1), ship.cutEngine)  // up
-    Keyboard.bind(40, () => ship.acceleration += Point2D(0, 1), ship.cutEngine)  // down */
+    Keyboard.bind(39, () => ship.acceleration += Point2D(1, 0), () => ship.acceleration -= Point2D(1, 0))   // right
+    Keyboard.bind(37, () => ship.acceleration += Point2D(-1, 0),() => ship.acceleration -= Point2D(-1, 0))  // left
+    Keyboard.bind(38, () => ship.acceleration += Point2D(0, -1),() => ship.acceleration -= Point2D(0, -1))  // up
+    Keyboard.bind(40, () => ship.acceleration += Point2D(0, 1), () => ship.acceleration -= Point2D(0, 1))   // down
+    Keyboard.bind(32, () => ship.fire(world))
 
     world.loop.run()
-
   }
 
 }
