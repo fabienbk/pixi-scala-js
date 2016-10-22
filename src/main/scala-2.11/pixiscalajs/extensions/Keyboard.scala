@@ -5,7 +5,10 @@ package pixiscalajs.extensions
   */
 object Keyboard {
 
-  def bind(keyCode: Int, onPress : () => Unit = null, onRelease : () => Unit = null): KeyBinding = {
+  def bind(keyCode: Int,
+           onPress : () => Unit = null,
+           onRelease : () => Unit = null,
+           whileDown : () => Unit = null): KeyBinding = {
     val key = KeyBinding(keyCode)
     key.release = onRelease
     key.press = onPress
