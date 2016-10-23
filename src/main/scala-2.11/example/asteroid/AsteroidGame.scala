@@ -3,9 +3,10 @@ package example.asteroid
 import org.scalajs.dom.html
 import pixiscalajs.PIXI
 import pixiscalajs.PIXI.{Pixi, RendererOptions}
-import pixiscalajs.extensions.{AnimationLoop, Keyboard, Point2D}
+import pixiscalajs.extensions._
 
 import scala.scalajs.js.annotation.JSExport
+import scala.util.Random
 
 /**
   * Created by fabienbk on 18/10/16.
@@ -20,22 +21,18 @@ class AsteroidGame {
   def main(canvas: html.Canvas): Unit = {
     println("Loading renderer")
     //val renderer = Pixi.autoDetectRenderer(800, 600, RendererOptions(canvas))
-    val renderer = new PIXI.CanvasRenderer(800,600, RendererOptions(canvas))
+    val renderer = new PIXI.CanvasRenderer(1600,1200, RendererOptions(canvas))
 
     println("Creating world")
 
-    val ship = Ship(400, 300)
+    val ship = Ship(800, 600)
 
-    world = new World(renderer)
-    world.add(ship).add(Asteroid(100, 100))
+    world = new World(renderer, ship)
+    world.add(ship)
 
-    println("Starting loop")
-
-    Keyboard.bind(39, () => ship.acceleration += Point2D(1, 0), () => ship.acceleration -= Point2D(1, 0))   // right
-    Keyboard.bind(37, () => ship.acceleration += Point2D(-1, 0),() => ship.acceleration -= Point2D(-1, 0))  // left
-    Keyboard.bind(38, () => ship.acceleration += Point2D(0, -1),() => ship.acceleration -= Point2D(0, -1))  // up
-    Keyboard.bind(40, () => ship.acceleration += Point2D(0, 1), () => ship.acceleration -= Point2D(0, 1))   // down
-    Keyboard.bind(32, () => ship.fire(world))
+    for(a <- 1 to 10){
+      world.add(Asteroid(Random.nextInt(1600), Random.nextInt(1200)))
+    }
 
     world.loop.run()
   }

@@ -20,8 +20,8 @@ case class KeyBinding(keyCode : Int) {
       }
       isDown = true
       isUp = false
+      event.preventDefault()
     }
-    event.preventDefault()
   }
 
   val upHandler = (event: KeyboardEvent) => {
@@ -31,8 +31,8 @@ case class KeyBinding(keyCode : Int) {
       }
       isDown = false
       isUp = true
+      event.preventDefault();
     }
-    event.preventDefault();
   };
 
   window.addEventListener("keydown", downHandler, false)
