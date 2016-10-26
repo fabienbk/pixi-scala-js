@@ -1,4 +1,4 @@
-package example
+package example.shapes
 
 import org.scalajs.dom.html
 import org.scalajs.dom.raw.Event
