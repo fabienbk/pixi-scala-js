@@ -35,6 +35,8 @@ object Vector2 {
   val Left = Vector2(-1, 0)
   val Right= Vector2( 1, 0)
   val Zero = Vector2( 0, 0)
+
+  def Random = Vector2(scala.util.Random.nextFloat()*2 - 1, scala.util.Random.nextFloat()*2 - 1)
 }
 
 object Implicits {

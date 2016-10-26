@@ -30,9 +30,10 @@ class AsteroidGame {
     world = new World(renderer, ship)
     world.add(ship)
 
-    for(a <- 1 to 10){
+    world.add(Asteroid(Random.nextInt(1600), Random.nextInt(1200)))
+    /*for(a <- 1 to 10){
       world.add(Asteroid(Random.nextInt(1600), Random.nextInt(1200)))
-    }
+    }*/
 
     world.loop.run()
   }

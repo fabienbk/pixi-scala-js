@@ -1,22 +1,26 @@
 package example.asteroid
 
 import pixiscalajs.PIXI
-import pixiscalajs.PIXI.SystemRenderer
+import pixiscalajs.PIXI.{DisplayObject, SystemRenderer}
 import pixiscalajs.extensions.{DefineLoop, Keyboard, Vector2}
 
-import scala.collection.mutable.ArrayBuffer
+import scala.collection.mutable
 
 /**
   * Created by fabienbk on 18/10/16.
   */
 class World(renderer : SystemRenderer, ship : Ship) {
+
+  val width = renderer.width
+  val height = renderer.height
+
   val right = Keyboard.bind(39)
   val left = Keyboard.bind(37)
   val up = Keyboard.bind(38)
   val down = Keyboard.bind(40)
   val space = Keyboard.bind(32)
 
-  val objects = ArrayBuffer[GameObject]()
+  var objects = mutable.ArrayBuffer[GameObject]()
 
   val stage = new PIXI.Container() {
     width = renderer.width
@@ -38,19 +42,21 @@ class World(renderer : SystemRenderer, ship : Ship) {
   def updateAllChildren() {
     val deltaTime = System.currentTimeMillis() - latestTimestamp
     latestTimestamp = System.currentTimeMillis()
-    objects.foreach(o => if (o!=null) o.update(deltaTime))
+
+    objects = objects.filter(_.alive)
+    objects.foreach(_.update(deltaTime))
   }
 
   def add(gameObject: GameObject) : World = {
     gameObject.setWorld(this)
-    gameObject.getDisplayObjects().foreach(stage.addChild(_))
+    stage.addChild(gameObject.getDisplayObject())
     objects += gameObject
     this
   }
 
-  def remove(gameObject: GameObject): Unit = {
-    gameObject.getDisplayObjects().foreach(stage.removeChild(_))
-    objects -= gameObject
+  def removeFromStage(gameObject: GameObject): Unit = {
+    val displayObject: DisplayObject = gameObject.getDisplayObject()
+    stage.removeChild(displayObject)
   }
 
   def checkCollision(origin: GameObject, position: Vector2) : Seq[GameObject] = {
