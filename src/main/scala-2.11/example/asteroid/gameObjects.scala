@@ -42,7 +42,7 @@ abstract class GameObject(x: Double, y: Double) {
 }
 
 abstract class SpriteGameObject(image: String, x: Double, y: Double, scale: Double = 1.0) extends GameObject(x,y) {
-  val sprite = PIXI.Sprite.fromImage(AsteroidGame.RESOURCES_ROOT + image)
+  val sprite = PIXI.Sprite.fromImage(AsteroidGame.RESOURCES_ROOT + '/' + image)
   sprite.anchor = Point(0.5, 0.5)
   sprite.scale = Point(scale, scale)
   sprite.name = this.toString
@@ -60,11 +60,10 @@ abstract class SpriteGameObject(image: String, x: Double, y: Double, scale: Doub
     world.removeFromStage(this)
   }
 
-
   override def checkCollision(origin : GameObject, point : Vector2) = sprite.containsPoint(point)
 }
 
-case class Ship(x: Double, y: Double) extends SpriteGameObject("/PNG/playerShip1_blue.png", x: Double, y: Double) {
+case class Ship(x: Double, y: Double) extends SpriteGameObject("playerShip1_blue.png", x: Double, y: Double) {
   maxSpeed = 3
 
   override def update(deltaTime: Long) = super.update(deltaTime)
@@ -72,7 +71,7 @@ case class Ship(x: Double, y: Double) extends SpriteGameObject("/PNG/playerShip1
   var lastShotTime = System.currentTimeMillis
   def fire(world: World) {
     val millis: Long = System.currentTimeMillis()
-    if (millis-lastShotTime > 300) {
+    if (millis-lastShotTime > 100) {
       lastShotTime = millis
       world.add(Laser(position.x, position.y, sprite.rotation))
     }
@@ -83,7 +82,7 @@ case class Ship(x: Double, y: Double) extends SpriteGameObject("/PNG/playerShip1
   override def checkCollision(origin: GameObject, point: Vector2) = false
 }
 
-case class Asteroid(x: Double, y: Double, scale:Double = 1.0) extends SpriteGameObject("/PNG/Meteors/meteorBrown_big1.png", x: Double, y: Double, scale:Double) {
+case class Asteroid(x: Double, y: Double, scale:Double = 1.0) extends SpriteGameObject("meteorBrown_big1.png", x: Double, y: Double, scale:Double) {
   val clockwise = Random.nextBoolean()
   val rotationSpeed = Random.nextInt(30) + 10
   acceleration = Vector2.Random
@@ -92,13 +91,14 @@ case class Asteroid(x: Double, y: Double, scale:Double = 1.0) extends SpriteGame
     super.update(deltaTime)
     sprite.rotation += 0.001 * rotationSpeed * (if(clockwise) 1 else -1)
   }
+
   def break(): Unit = {
     if (scale > 0.25) world.add(Asteroid(position.x,position.y,scale/2)).add(Asteroid(position.x,position.y,scale/2))
     destroy()
   }
 }
 
-case class Laser(x: Double, y: Double, angle: Double) extends SpriteGameObject("/PNG/Lasers/laserBlue01.png", x: Double, y: Double) {
+case class Laser(x: Double, y: Double, angle: Double) extends SpriteGameObject("laserBlue01.png", x: Double, y: Double) {
   sprite.rotation = angle
   maxSpeed = 20
   acceleration = Vector2(Math.sin(angle), -Math.cos(angle))
@@ -114,11 +114,6 @@ case class Laser(x: Double, y: Double, angle: Double) extends SpriteGameObject("
       }
     }
   }
-
-}
-
-case class Impact(x: Double, y:Double) extends SpriteGameObject("/PNG/Lasers/laserBlue01.png", x: Double, y: Double) {
-
 }
 
 

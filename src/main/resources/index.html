@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Example Scala.js application</title>
+    <title>Asteroids.js!</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 
     <script type="text/javascript" src="http://pixijs.download/v4.0.3/pixi.js"></script>
@@ -15,9 +15,13 @@
     canvas { background-color: #222222; border: 1px solid gray;}
 </style>
 
+<div align="center" style="margin-bottom: 10px;color: ghostwhite;font-size: 36px">Asteroids! Pixi.js facade demo in Scala.js - <a href="https://github.com/fabienbk/pixi-scala-js">Code</a></div>
+
 <div align="center">
     <canvas id="canvas" style="display: block" width="1600" height="1200"/>
 </div>
+
+<div align="center" style="margin-top: 10px;color: ghostwhite;font-size: 18px">Use arrows and space - By <a href="https://twitter.com/fabienbk">@fabienbk</a> - Graphics courtesy of the awesome <a href="http://kenney.nl/">kenney.nl</a></div>
 
 <script>
     example.asteroid.AsteroidGame().main(document.getElementById('canvas'));
