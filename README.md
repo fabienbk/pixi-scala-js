@@ -104,7 +104,7 @@ loop.run()
 
 ##### Vector2 implementation #####
 
-`pixiscalajs.extensions.Vector2` is a `PIXI.Point` implicitly-convertible Vector 2D implementation, with some common function and operators (operators, magnitude, etc.).
+`pixiscalajs.extensions.Vector2` is a `PIXI.Point` implicitly-convertible Vector 2D implementation, with some common function and operators (arithmetic, magnitude, etc.).
 
 ##### Keyboard Bindings #####
 
