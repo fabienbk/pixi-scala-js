@@ -76,18 +76,10 @@ The `AnimationLoop` construct allows to defined an endless loop that automatical
  `window.requestAnimationFrame` at the end.
  
 ```scala
-AnimationLoop {
-  count += 0.1
-  graphics.clear()
-  graphics.lineStyle(30, 0xff0000, 1).beginFill(0xffFF00, 0.5)
-
-  graphics.moveTo(-120 + Math.sin(count) * 20, -100 + Math.cos(count)* 20)
-    .lineTo(120 + Math.cos(count) * 20, -100 + Math.sin(count)* 20)
-    .lineTo(120 + Math.sin(count) * 20, 100 + Math.cos(count)* 20)
-    .lineTo(-120 + Math.cos(count)* 20, 100 + Math.sin(count)* 20)
-    .lineTo(-120 + Math.sin(count) * 20, -100 + Math.cos(count)* 20)
-
-  thing.rotation = count * 0.1
+AnimationLoop {  
+  ...  
+  sprite.rotation += 0.1
+  ...
   renderer.render(stage)
 }
 ```
