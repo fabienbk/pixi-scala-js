@@ -12,7 +12,11 @@ quite awesome, and ScalaJS makes it awesomer.
 The goal of this project is to stay as close as possible to the underlying API, in order words, 
 to favor correctness over abstraction.
 
-### Version? 
+### Live Demo
+
+Go to http://asteroids.fbksoft.com and shoot some rocks!
+
+### Version
 
 It's currently targeting *Pixi.js v4.0.3*. Don't forget to include it in your project.
 
