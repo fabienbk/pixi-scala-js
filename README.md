@@ -69,11 +69,13 @@ def main(canvas: html.Canvas): Unit = {
 
 #### Extensions ####
 
+##### Animation Loops #####
+
 The `pixiscalajs.extensions` package contains various extensions to the library 
 designed to make the library more scala-friendly.
 
 The `AnimationLoop` construct allows to defined an endless loop that automatically calls
- `window.requestAnimationFrame` at the end.
+ `window.requestAnimationFrame` at the end. 
  
 ```scala
 AnimationLoop {  
@@ -82,6 +84,34 @@ AnimationLoop {
   ...
   renderer.render(stage)
 }
+```
+Note that this will start the loop immediately. If you want to control the start, use `DefineLoop` :
+
+```scala
+val loop = DefineLoop {  
+  ...  
+  sprite.rotation += 0.1
+  ...
+  renderer.render(stage)
+}
+
+loop.run()
+```
+
+##### Vector2 implementation #####
+
+`pixiscalajs.extensions.Vector2` is a `PIXI.Point` implicitly-convertible Vector 2D implementation, with some common function and operators (operators, magnitude, etc.).
+
+##### Keyboard Bindings #####
+
+```scala
+  val right = Keyboard.bind(39)
+  val left = Keyboard.bind(37)
+    
+  AnimationLoop {
+    if (right.isDown) println("right arrow is pressed")
+    if (left.isDown) println("left arrow is pressed")    
+  }
 ```
  
 ### Demos ###
