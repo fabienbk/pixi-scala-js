@@ -78,6 +78,8 @@ The `AnimationLoop` construct allows to defined an endless loop that automatical
  `window.requestAnimationFrame` at the end. 
  
 ```scala
+import pixiscalajs.extensions.AnimationLoop
+
 AnimationLoop {  
   ...  
   sprite.rotation += 0.1
@@ -88,6 +90,8 @@ AnimationLoop {
 Note that this will start the loop immediately. If you want to control the start, use `DefineLoop` :
 
 ```scala
+import pixiscalajs.extensions.DefineLoop
+
 val loop = DefineLoop {  
   ...  
   sprite.rotation += 0.1
@@ -105,6 +109,8 @@ loop.run()
 ##### Keyboard Bindings #####
 
 ```scala
+  import pixiscalajs.extensions.Keyboard
+
   val right = Keyboard.bind(39)
   val left = Keyboard.bind(37)
     
