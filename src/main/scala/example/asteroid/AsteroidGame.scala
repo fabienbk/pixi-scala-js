@@ -5,16 +5,15 @@ import pixiscalajs.PIXI
 import pixiscalajs.PIXI.{Pixi, RendererOptions}
 import pixiscalajs.extensions._
 
-import scala.scalajs.js.annotation.JSExport
+import scala.scalajs.js.annotation.{JSExportTopLevel, JSExport}
 import scala.util.Random
 
 /**
   * Created by fabienbk on 18/10/16.
   */
-@JSExport
+@JSExportTopLevel("example.asteroid.AsteroidGame")
 class AsteroidGame {
 
-  @JSExport
   var world : World = null
 
   @JSExport
@@ -37,8 +36,6 @@ class AsteroidGame {
   }
 
 }
-
-
 
 object AsteroidGame {
 

@@ -6,11 +6,10 @@ import pixiscalajs.PIXI
 import pixiscalajs.PIXI.{Pixi, RendererOptions}
 import pixiscalajs.extensions.AnimationLoop
 
-import scala.scalajs.js.annotation.JSExport
+import scala.scalajs.js.annotation.{JSExportTopLevel, JSExport}
 
-@JSExport
+@JSExportTopLevel("example.shapes.PixiScalaJSExample")
 object PixiScalaJSExample {
-
 
   @JSExport
   def main(canvas: html.Canvas): Unit = {
