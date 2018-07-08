@@ -3,13 +3,13 @@ Fabienbk's ScalaJS facade to Pixi.js
 
 [![Scala.js](https://www.scala-js.org/assets/badges/scalajs-0.6.8.svg)](https://www.scala-js.org)
 
-This project aims to provide a ScalaJS facade for [Pixi.js](http://www.pixijs.com/), a 2D library 
-that works across all devices.  Pixi.js has full 
-[WebGL](https://en.wikipedia.org/wiki/WebGL) support and seamlessly falls back 
-to HTML5's [canvas](https://en.wikipedia.org/wiki/Canvas_element) if needed. It's 
+This project aims to provide a ScalaJS facade for [Pixi.js](http://www.pixijs.com/), a 2D library
+that works across all devices.  Pixi.js has full
+[WebGL](https://en.wikipedia.org/wiki/WebGL) support and seamlessly falls back
+to HTML5's [canvas](https://en.wikipedia.org/wiki/Canvas_element) if needed. It's
 quite awesome, and ScalaJS makes it awesomer.
 
-The goal of this project is to stay as close as possible to the underlying API, in order words, 
+The goal of this project is to stay as close as possible to the underlying API, in order words,
 to favor correctness over abstraction.
 
 ### Live Demo
@@ -47,22 +47,22 @@ a `Pixi` (different casing) scala object. It's mostly useful to call the `autoDe
 Here is a small example:
 
 ```scala
-@JSExport
+@JSExportTopLevel
 def main(canvas: html.Canvas): Unit = {
   val renderer = Pixi.autoDetectRenderer(800, 600, RendererOptions(canvas))
-  
+
   val stage = new PIXI.Container()
   stage.width = 800
   stage.height = 600
-  
+
   val graphics = new PIXI.Graphics()
   graphics.beginFill(0xFF3300).lineStyle(10, 0xffd900, 1)
   graphics.moveTo(50,50).lineTo(250, 50).lineTo(100, 100)
           .lineTo(250, 220).lineTo(50, 220).lineTo(50, 50)
   graphics.endFill()
-  
+
   stage.addChild(graphics)
-  
+
   renderer.render(stage)
 }
 ```
@@ -71,12 +71,12 @@ def main(canvas: html.Canvas): Unit = {
 
 ##### Animation Loops #####
 
-The `pixiscalajs.extensions` package contains various extensions to the library 
+The `pixiscalajs.extensions` package contains various extensions to the library
 designed to make the library more scala-friendly.
 
 The `AnimationLoop` construct allows to defined an endless loop that automatically calls
- `window.requestAnimationFrame` at the end. 
- 
+ `window.requestAnimationFrame` at the end.
+
 ```scala
 import pixiscalajs.extensions.AnimationLoop
 
@@ -113,13 +113,13 @@ loop.run()
 
   val right = Keyboard.bind(39)
   val left = Keyboard.bind(37)
-    
+
   AnimationLoop {
     if (right.isDown) println("right arrow is pressed")
     if (left.isDown) println("left arrow is pressed")    
   }
 ```
- 
+
 ### Demos ###
 
 An example is packaged in this repo. See the example package.

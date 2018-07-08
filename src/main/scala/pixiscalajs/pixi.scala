@@ -4,15 +4,13 @@ import org.scalajs.dom.raw._
 
 import scala.scalajs.js
 import scala.scalajs.js.JSConverters._
-import scala.scalajs.js.annotation.{JSName, ScalaJSDefined}
+import scala.scalajs.js.annotation.{JSGlobal, JSName, ScalaJSDefined}
 import scala.scalajs.js.typedarray.Uint16Array
 import scala.scalajs.js.|
 
 
-
-
 @js.native
-@JSName("PIXI.RENDERER_TYPE")
+@JSGlobal("PIXI.RENDERER_TYPE")
 object RENDERER_TYPE extends js.Object {
   var UNKNOWN: Double = js.native
   var WEBGL: Double = js.native
@@ -20,7 +18,7 @@ object RENDERER_TYPE extends js.Object {
 }
 
 @js.native
-@JSName("PIXI.BLEND_MODES")
+@JSGlobal("PIXI.BLEND_MODES")
 object BLEND_MODES extends js.Object {
   var NORMAL: Double = js.native
   var ADD: Double = js.native
@@ -42,7 +40,7 @@ object BLEND_MODES extends js.Object {
 }
 
 @js.native
-@JSName("PIXI.DRAW_MODES")
+@JSGlobal("PIXI.DRAW_MODES")
 object DRAW_MODES extends js.Object {
   var POINTS: Double = js.native
   var LINES: Double = js.native
@@ -54,7 +52,7 @@ object DRAW_MODES extends js.Object {
 }
 
 @js.native
-@JSName("PIXI.SCALE_MODES")
+@JSGlobal("PIXI.SCALE_MODES")
 object SCALE_MODES extends js.Object {
   var DEFAULT: Double = js.native
   var LINEAR: Double = js.native
@@ -62,7 +60,7 @@ object SCALE_MODES extends js.Object {
 }
 
 @js.native
-@JSName("PIXI.DEFAULT_RENDER_OPTIONS")
+@JSGlobal("PIXI.DEFAULT_RENDER_OPTIONS")
 object DEFAULT_RENDER_OPTIONS extends js.Object {
   var view: HTMLCanvasElement = js.native
   var resolution: Double = js.native
@@ -77,7 +75,7 @@ object DEFAULT_RENDER_OPTIONS extends js.Object {
 }
 
 @js.native
-@JSName("PIXI.SHAPES")
+@JSGlobal("PIXI.SHAPES")
 object SHAPES extends js.Object {
   var POLY: Double = js.native
   var RECT: Double = js.native
@@ -87,7 +85,7 @@ object SHAPES extends js.Object {
 }
 
 @js.native
-@JSName("PIXI.AccessibilityManager")
+@JSGlobal("PIXI.AccessibilityManager")
 class AccessibilityManager protected() extends js.Object {
   def this(renderer: SystemRenderer) = this()
 
@@ -123,7 +121,7 @@ trait AccessibleTarget extends js.Object {
 }
 
 @js.native
-@JSName("PIXI.DisplayObject")
+@JSGlobal("PIXI.DisplayObject")
 class DisplayObject extends utils.EventEmitter with interaction.InteractiveTarget {
   var _originalRenderWebGL: WebGLRenderer = js.native
   var _originalRenderCanvas: CanvasRenderer = js.native
@@ -199,7 +197,7 @@ class DisplayObject extends utils.EventEmitter with interaction.InteractiveTarge
 }
 
 @js.native
-@JSName("PIXI.Container")
+@JSGlobal("PIXI.Container")
 class Container extends DisplayObject {
   def _renderWebGL(renderer: WebGLRenderer): Unit = js.native
 
@@ -239,7 +237,7 @@ class Container extends DisplayObject {
 }
 
 @js.native
-@JSName("PIXI.GraphicsData")
+@JSGlobal("PIXI.GraphicsData")
 class GraphicsData protected() extends js.Object {
   def this(lineWidth: Double, lineColor: Double, lineAlpha: Double, fillColor: Double, fillAlpha: Double, fill: Boolean, shape: Circle | Rectangle | Ellipse | Polygon) = this()
 
@@ -257,7 +255,7 @@ class GraphicsData protected() extends js.Object {
 }
 
 @js.native
-@JSName("PIXI.Graphics")
+@JSGlobal("PIXI.Graphics")
 class Graphics extends Container {
   var boundsDirty: Boolean = js.native
   var dirty: Boolean = js.native
@@ -310,7 +308,7 @@ class Graphics extends Container {
 }
 
 @js.native
-@JSName("PIXI.GraphicsRenderer")
+@JSGlobal("PIXI.GraphicsRenderer")
 class GraphicsRenderer protected() extends ObjectRenderer {
   def this(renderer: WebGLRenderer) = this()
 
@@ -326,7 +324,7 @@ class GraphicsRenderer protected() extends ObjectRenderer {
 }
 
 @js.native
-@JSName("PIXI.WebGLGraphicsData")
+@JSGlobal("PIXI.WebGLGraphicsData")
 class WebGLGraphicsData protected() extends js.Object {
   def this(gl: WebGLRenderingContext) = this()
 
@@ -337,7 +335,7 @@ class WebGLGraphicsData protected() extends js.Object {
 
 package GroupD8 {
 
-  @JSName("PIXI.GroupD8")
+  @JSGlobal("PIXI.GroupD8")
   @js.native
   object GroupD8 extends js.Object {
     def add(rotationSecond: Double, rotationFirst: Double): Double = js.native
@@ -377,7 +375,7 @@ package GroupD8 {
 }
 
 @js.native
-@JSName("PIXI.Point")
+@JSGlobal("PIXI.Point")
 class Point protected() extends js.Object {
   def this(x: Double = ???, y: Double = ???) = this()
 
@@ -397,7 +395,7 @@ object Point {
 }
 
 @js.native
-@JSName("PIXI.Matrix")
+@JSGlobal("PIXI.Matrix")
 class Matrix extends js.Object {
   var a: Double = js.native
   var b: Double = js.native
@@ -437,7 +435,7 @@ class Matrix extends js.Object {
 }
 
 @js.native
-@JSName("PIXI.Matrix")
+@JSGlobal("PIXI.Matrix")
 object Matrix extends js.Object {
   var IDENTITY: Matrix = js.native
   var TEMP_MATRIX: Matrix = js.native
@@ -449,7 +447,7 @@ trait HitArea extends js.Object {
 }
 
 @js.native
-@JSName("PIXI.Circle")
+@JSGlobal("PIXI.Circle")
 class Circle protected() extends HitArea {
   def this(x: Double = ???, y: Double = ???, radius: Double = ???) = this()
 
@@ -462,7 +460,7 @@ class Circle protected() extends HitArea {
 }
 
 @js.native
-@JSName("PIXI.Ellipse")
+@JSGlobal("PIXI.Ellipse")
 class Ellipse protected() extends HitArea {
   def this(x: Double = ???, y: Double = ???, width: Double = ???, height: Double = ???) = this()
 
@@ -476,7 +474,7 @@ class Ellipse protected() extends HitArea {
 }
 
 @js.native
-@JSName("PIXI.Polygon")
+@JSGlobal("PIXI.Polygon")
 class Polygon protected() extends HitArea {
   def this(points: Point*) = this()
 
@@ -489,7 +487,7 @@ class Polygon protected() extends HitArea {
 }
 
 @js.native
-@JSName("PIXI.Rectangle")
+@JSGlobal("PIXI.Rectangle")
 class Rectangle protected() extends HitArea {
   def this(x: Double = ???, y: Double = ???, width: Double = ???, height: Double = ???) = this()
 
@@ -502,13 +500,13 @@ class Rectangle protected() extends HitArea {
 }
 
 @js.native
-@JSName("PIXI.Rectangle")
+@JSGlobal("PIXI.Rectangle")
 object Rectangle extends js.Object {
   var EMPTY: Rectangle = js.native
 }
 
 @js.native
-@JSName("PIXI.RoundedRectangle")
+@JSGlobal("PIXI.RoundedRectangle")
 class RoundedRectangle protected() extends HitArea {
   def this(x: Double = ???, y: Double = ???, width: Double = ???, height: Double = ???, radius: Double = ???) = this()
 
@@ -531,7 +529,7 @@ trait ParticleContainerProperties extends js.Object {
 }
 
 @js.native
-@JSName("PIXI.ParticleContainer")
+@JSGlobal("PIXI.ParticleContainer")
 class ParticleContainer protected() extends Container {
   def this(size: Double = ???, properties: ParticleContainerProperties = ???, batchSize: Double = ???) = this()
 
@@ -577,7 +575,7 @@ trait IParticleRendererProperty extends js.Object {
 }
 
 @js.native
-@JSName("PIXI.ParticleRenderer")
+@JSGlobal("PIXI.ParticleRenderer")
 class ParticleRenderer protected() extends ObjectRenderer {
   def this(renderer: WebGLRenderer) = this()
 
@@ -618,7 +616,7 @@ object RendererOptions {
 }
 
 @js.native
-@JSName("PIXI.SystemRenderer")
+@JSGlobal("PIXI.SystemRenderer")
 class SystemRenderer protected() extends utils.EventEmitter {
   def this(system: String, width: Double = ???, height: Double = ???, options: RendererOptions = ???) = this()
 
@@ -648,7 +646,7 @@ class SystemRenderer protected() extends utils.EventEmitter {
 }
 
 @js.native
-@JSName("PIXI.CanvasRenderer")
+@JSGlobal("PIXI.CanvasRenderer")
 class CanvasRenderer protected() extends SystemRenderer {
   def this(width: Double = ???, height: Double = ???, options: RendererOptions = ???) = this()
 
@@ -664,7 +662,7 @@ class CanvasRenderer protected() extends SystemRenderer {
 }
 
 @js.native
-@JSName("PIXI.CanvasBuffer")
+@JSGlobal("PIXI.CanvasBuffer")
 class CanvasBuffer protected() extends js.Object {
   def this(width: Double, height: Double) = this()
 
@@ -682,7 +680,7 @@ class CanvasBuffer protected() extends js.Object {
 
 package CanvasGraphics {
 
-  @JSName("PIXI.CanvasGraphics")
+  @JSGlobal("PIXI.CanvasGraphics")
   @js.native
   object CanvasGraphics extends js.Object {
     def renderGraphicsMask(graphics: Graphics, context: CanvasRenderingContext2D): Unit = js.native
@@ -695,7 +693,7 @@ package CanvasGraphics {
 }
 
 @js.native
-@JSName("PIXI.CanvasMaskManager")
+@JSGlobal("PIXI.CanvasMaskManager")
 class CanvasMaskManager extends js.Object {
   def pushMask(maskData: js.Any, renderer: WebGLRenderer | CanvasRenderer): Unit = js.native
 
@@ -706,7 +704,7 @@ class CanvasMaskManager extends js.Object {
 
 package CanvasTinter {
 
-  @JSName("PIXI.CanvasTinter")
+  @JSGlobal("PIXI.CanvasTinter")
   @js.native
   object CanvasTinter extends js.Object {
     def getTintedTexture(sprite: DisplayObject, color: Double): HTMLCanvasElement = js.native
@@ -728,7 +726,7 @@ package CanvasTinter {
 }
 
 @js.native
-@JSName("PIXI.WebGLRenderer")
+@JSGlobal("PIXI.WebGLRenderer")
 class WebGLRenderer protected() extends SystemRenderer {
   def this(width: Double = ???, height: Double = ???, options: RendererOptions = ???) = this()
 
@@ -767,7 +765,7 @@ class WebGLRenderer protected() extends SystemRenderer {
 }
 
 @js.native
-@JSName("PIXI.AbstractFilter")
+@JSGlobal("PIXI.AbstractFilter")
 class AbstractFilter protected() extends js.Object {
   def this(vertexSrc: String | js.Array[String] = ???, fragmentSrc: String | js.Array[String] = ???, uniforms: js.Any = ???) = this()
 
@@ -784,7 +782,7 @@ class AbstractFilter protected() extends js.Object {
 }
 
 @js.native
-@JSName("PIXI.SpriteMaskFilter")
+@JSGlobal("PIXI.SpriteMaskFilter")
 class SpriteMaskFilter protected() extends AbstractFilter {
   def this(sprite: Sprite) = this()
 
@@ -798,13 +796,13 @@ class SpriteMaskFilter protected() extends AbstractFilter {
 }
 
 @js.native
-@JSName("PIXI.FXAAFilter")
+@JSGlobal("PIXI.FXAAFilter")
 class FXAAFilter extends AbstractFilter {
   def applyFilter(renderer: WebGLRenderer, input: RenderTarget, output: RenderTarget): Unit = js.native
 }
 
 @js.native
-@JSName("PIXI.BlendModeManager")
+@JSGlobal("PIXI.BlendModeManager")
 class BlendModeManager protected() extends WebGLManager {
   def this(renderer: WebGLRenderer) = this()
 
@@ -812,7 +810,7 @@ class BlendModeManager protected() extends WebGLManager {
 }
 
 @js.native
-@JSName("PIXI.FilterManager")
+@JSGlobal("PIXI.FilterManager")
 class FilterManager protected() extends WebGLManager {
   def this(renderer: WebGLRenderer) = this()
 
@@ -839,7 +837,7 @@ class FilterManager protected() extends WebGLManager {
 }
 
 @js.native
-@JSName("PIXI.MaskManager")
+@JSGlobal("PIXI.MaskManager")
 class MaskManager extends WebGLManager {
   var stencilStack: StencilMaskStack = js.native
   var reverse: Boolean = js.native
@@ -860,7 +858,7 @@ class MaskManager extends WebGLManager {
 }
 
 @js.native
-@JSName("PIXI.ShaderManager")
+@JSGlobal("PIXI.ShaderManager")
 class ShaderManager protected() extends WebGLManager {
   def this(renderer: WebGLRenderer) = this()
 
@@ -877,7 +875,7 @@ class ShaderManager protected() extends WebGLManager {
 }
 
 @js.native
-@JSName("PIXI.StencilManager")
+@JSGlobal("PIXI.StencilManager")
 class StencilManager protected() extends WebGLManager {
   def this(renderer: WebGLRenderer) = this()
 
@@ -895,7 +893,7 @@ class StencilManager protected() extends WebGLManager {
 }
 
 @js.native
-@JSName("PIXI.WebGLManager")
+@JSGlobal("PIXI.WebGLManager")
 class WebGLManager protected() extends js.Object {
   def this(renderer: WebGLRenderer) = this()
 
@@ -906,7 +904,7 @@ class WebGLManager protected() extends js.Object {
 }
 
 @js.native
-@JSName("PIXI.Shader")
+@JSGlobal("PIXI.Shader")
 class Shader protected() extends js.Object {
   def this(shaderManager: ShaderManager, vertexSrc: String, fragmentSrc: String, uniforms: js.Any, attributes: js.Any) = this()
 
@@ -941,19 +939,19 @@ class Shader protected() extends js.Object {
 }
 
 @js.native
-@JSName("PIXI.ComplexPrimitiveShader")
+@JSGlobal("PIXI.ComplexPrimitiveShader")
 class ComplexPrimitiveShader protected() extends Shader {
   def this(shaderManager: ShaderManager) = this()
 }
 
 @js.native
-@JSName("PIXI.PrimitiveShader")
+@JSGlobal("PIXI.PrimitiveShader")
 class PrimitiveShader protected() extends Shader {
   def this(shaderManager: ShaderManager) = this()
 }
 
 @js.native
-@JSName("PIXI.TextureShader")
+@JSGlobal("PIXI.TextureShader")
 class TextureShader protected() extends Shader {
   def this(shaderManager: ShaderManager, vertexSrc: String = ???, fragmentSrc: String = ???, customUniforms: js.Any = ???, customAttributes: js.Any = ???) = this()
 }
@@ -966,7 +964,7 @@ trait StencilMaskStack extends js.Object {
 }
 
 @js.native
-@JSName("PIXI.ObjectRenderer")
+@JSGlobal("PIXI.ObjectRenderer")
 class ObjectRenderer extends WebGLManager {
   def start(): Unit = js.native
 
@@ -978,7 +976,7 @@ class ObjectRenderer extends WebGLManager {
 }
 
 @js.native
-@JSName("PIXI.RenderTarget")
+@JSGlobal("PIXI.RenderTarget")
 class RenderTarget protected() extends js.Object {
   def this(gl: WebGLRenderingContext, width: Double, height: Double, scaleMode: Double, resolution: Double, root: Boolean) = this()
 
@@ -1027,7 +1025,7 @@ trait Quad extends js.Object {
 }
 
 @js.native
-@JSName("PIXI.Sprite")
+@JSGlobal("PIXI.Sprite")
 class Sprite protected() extends Container {
   def this(texture: Texture = ???) = this()
 
@@ -1052,7 +1050,7 @@ class Sprite protected() extends Container {
 }
 
 @js.native
-@JSName("PIXI.Sprite")
+@JSGlobal("PIXI.Sprite")
 object Sprite extends js.Object {
   def fromFrame(frameId: String): Sprite = js.native
 
@@ -1060,7 +1058,7 @@ object Sprite extends js.Object {
 }
 
 @js.native
-@JSName("PIXI.SpriteRenderer")
+@JSGlobal("PIXI.SpriteRenderer")
 class SpriteRenderer extends ObjectRenderer {
   def renderBatch(texture: Texture, size: Double, startIndex: Double): Unit = js.native
 
@@ -1108,7 +1106,7 @@ object TextStyle {
 }
 
 @js.native
-@JSName("PIXI.Text")
+@JSGlobal("PIXI.Text")
 class Text protected() extends Sprite {
   def this(text: String = "", style: TextStyle = ???, resolution: Double = ???) = this()
 
@@ -1134,7 +1132,7 @@ class Text protected() extends Sprite {
 }
 
 @js.native
-@JSName("PIXI.Text")
+@JSGlobal("PIXI.Text")
 object Text extends js.Object {
   var fontPropertiesCache: js.Any = js.native
   var fontPropertiesCanvas: HTMLCanvasElement = js.native
@@ -1142,7 +1140,7 @@ object Text extends js.Object {
 }
 
 @js.native
-@JSName("PIXI.BaseTexture")
+@JSGlobal("PIXI.BaseTexture")
 class BaseTexture protected() extends utils.EventEmitter {
   def this(source: HTMLImageElement | HTMLCanvasElement, scaleMode: Double = ???, resolution: Double = ???) = this()
 
@@ -1178,7 +1176,7 @@ class BaseTexture protected() extends utils.EventEmitter {
 }
 
 @js.native
-@JSName("PIXI.BaseTexture")
+@JSGlobal("PIXI.BaseTexture")
 object BaseTexture extends js.Object {
   def fromImage(imageUrl: String, crossorigin: Boolean = ???, scaleMode: Double = ???): BaseTexture = js.native
 
@@ -1186,7 +1184,7 @@ object BaseTexture extends js.Object {
 }
 
 @js.native
-@JSName("PIXI.RenderTexture")
+@JSGlobal("PIXI.RenderTexture")
 class RenderTexture protected() extends Texture {
   def this(renderer: CanvasRenderer | WebGLRenderer, width: Double = ???, height: Double = ???, scaleMode: Double = ???, resolution: Double = ???) = this()
 
@@ -1217,7 +1215,7 @@ class RenderTexture protected() extends Texture {
 }
 
 @js.native
-@JSName("PIXI.Texture")
+@JSGlobal("PIXI.Texture")
 class Texture protected() extends utils.EventEmitter {
   def this(baseTexture: BaseTexture, frame: Rectangle = ???, crop: Rectangle = ???, trim: Rectangle = ???, rotate: Double = ???) = this()
 
@@ -1248,7 +1246,7 @@ class Texture protected() extends utils.EventEmitter {
 }
 
 @js.native
-@JSName("PIXI.Texture")
+@JSGlobal("PIXI.Texture")
 object Texture extends js.Object {
   def fromImage(imageUrl: String, crossOrigin: Boolean = ???, scaleMode: Double = ???): Texture = js.native
 
@@ -1268,7 +1266,7 @@ object Texture extends js.Object {
 }
 
 @js.native
-@JSName("PIXI.TextureUvs")
+@JSGlobal("PIXI.TextureUvs")
 class TextureUvs extends js.Object {
   var x0: Double = js.native
   var y0: Double = js.native
@@ -1283,7 +1281,7 @@ class TextureUvs extends js.Object {
 }
 
 @js.native
-@JSName("PIXI.VideoBaseTexture")
+@JSGlobal("PIXI.VideoBaseTexture")
 class VideoBaseTexture protected() extends BaseTexture {
   def this(source: HTMLVideoElement, scaleMode: Double = ???) = this()
 
@@ -1302,7 +1300,7 @@ class VideoBaseTexture protected() extends BaseTexture {
 }
 
 @js.native
-@JSName("PIXI.VideoBaseTexture")
+@JSGlobal("PIXI.VideoBaseTexture")
 object VideoBaseTexture extends js.Object {
   def fromVideo(video: HTMLVideoElement, scaleMode: Double = ???): VideoBaseTexture = js.native
 
@@ -1312,7 +1310,7 @@ object VideoBaseTexture extends js.Object {
 package utils {
 
   @js.native
-  @JSName("PIXI.utils.EventEmitter")
+  @JSGlobal("PIXI.utils.EventEmitter")
   class EventEmitter extends js.Object {
     def listeners(event: String): js.Array[js.Function] = js.native
 
@@ -1331,7 +1329,7 @@ package utils {
     def addListener(event: String, fn: js.Function, context: js.Any = ???): EventEmitter = js.native
   }
 
-  @JSName("PIXI.utils")
+  @JSGlobal("PIXI.utils")
   @js.native
   object Utils extends js.Object {
     def uuid(): Double = js.native
@@ -1374,7 +1372,7 @@ package extras {
   }
 
   @js.native
-  @JSName("PIXI.extras.BitmapText")
+  @JSGlobal("PIXI.extras.BitmapText")
   class BitmapText protected() extends Container {
     def this(text: String, style: BitmapTextStyle = ???) = this()
 
@@ -1396,13 +1394,13 @@ package extras {
   }
 
   @js.native
-  @JSName("PIXI.extras.BitmapText")
+  @JSGlobal("PIXI.extras.BitmapText")
   object BitmapText extends js.Object {
     var fonts: js.Any = js.native
   }
 
   @js.native
-  @JSName("PIXI.extras.MovieClip")
+  @JSGlobal("PIXI.extras.MovieClip")
   class MovieClip protected() extends Sprite {
     def this(textures: js.Array[Texture] | js.Array[js.Any]) = this()
 
@@ -1431,7 +1429,7 @@ package extras {
   }
 
   @js.native
-  @JSName("PIXI.extras.MovieClip")
+  @JSGlobal("PIXI.extras.MovieClip")
   object MovieClip extends js.Object {
     def fromFrames(frame: js.Array[String]): MovieClip = js.native
 
@@ -1439,7 +1437,7 @@ package extras {
   }
 
   @js.native
-  @JSName("PIXI.extras.TilingSprite")
+  @JSGlobal("PIXI.extras.TilingSprite")
   class TilingSprite protected() extends Sprite {
     def this(texture: Texture, width: Double, height: Double) = this()
 
@@ -1456,7 +1454,7 @@ package extras {
   }
 
   @js.native
-  @JSName("PIXI.extras.TilingSprite")
+  @JSGlobal("PIXI.extras.TilingSprite")
   object TilingSprite extends js.Object {
     def fromFrame(frameId: String): Sprite = js.native
 
@@ -1472,13 +1470,13 @@ package extras {
 package filters {
 
   @js.native
-  @JSName("PIXI.filters.AsciiFilter")
+  @JSGlobal("PIXI.filters.AsciiFilter")
   class AsciiFilter extends AbstractFilter {
     var size: Double = js.native
   }
 
   @js.native
-  @JSName("PIXI.filters.BloomFilter")
+  @JSGlobal("PIXI.filters.BloomFilter")
   class BloomFilter extends AbstractFilter {
     var blur: Double = js.native
     var blurX: Double = js.native
@@ -1486,7 +1484,7 @@ package filters {
   }
 
   @js.native
-  @JSName("PIXI.filters.BlurFilter")
+  @JSGlobal("PIXI.filters.BlurFilter")
   class BlurFilter extends AbstractFilter {
     var blurXFilter: BlurXFilter = js.native
     var blurYFilter: BlurYFilter = js.native
@@ -1497,7 +1495,7 @@ package filters {
   }
 
   @js.native
-  @JSName("PIXI.filters.BlurXFilter")
+  @JSGlobal("PIXI.filters.BlurXFilter")
   class BlurXFilter extends AbstractFilter {
     var passes: Double = js.native
     var strength: Double = js.native
@@ -1505,7 +1503,7 @@ package filters {
   }
 
   @js.native
-  @JSName("PIXI.filters.BlurYFilter")
+  @JSGlobal("PIXI.filters.BlurYFilter")
   class BlurYFilter extends AbstractFilter {
     var passes: Double = js.native
     var strength: Double = js.native
@@ -1513,12 +1511,12 @@ package filters {
   }
 
   @js.native
-  @JSName("PIXI.filters.SmartBlurFilter")
+  @JSGlobal("PIXI.filters.SmartBlurFilter")
   class SmartBlurFilter extends AbstractFilter {
   }
 
   @js.native
-  @JSName("PIXI.filters.ColorMatrixFilter")
+  @JSGlobal("PIXI.filters.ColorMatrixFilter")
   class ColorMatrixFilter extends AbstractFilter {
     def _loadMatrix(matrix: js.Array[Double], multiply: Boolean): Unit = js.native
 
@@ -1570,13 +1568,13 @@ package filters {
   }
 
   @js.native
-  @JSName("PIXI.filters.ColorStepFilter")
+  @JSGlobal("PIXI.filters.ColorStepFilter")
   class ColorStepFilter extends AbstractFilter {
     var step: Double = js.native
   }
 
   @js.native
-  @JSName("PIXI.filters.ConvolutionFilter")
+  @JSGlobal("PIXI.filters.ConvolutionFilter")
   class ConvolutionFilter protected() extends AbstractFilter {
     def this(matrix: js.Array[Double], width: Double, height: Double) = this()
 
@@ -1586,12 +1584,12 @@ package filters {
   }
 
   @js.native
-  @JSName("PIXI.filters.CrossHatchFilter")
+  @JSGlobal("PIXI.filters.CrossHatchFilter")
   class CrossHatchFilter extends AbstractFilter {
   }
 
   @js.native
-  @JSName("PIXI.filters.DisplacementFilter")
+  @JSGlobal("PIXI.filters.DisplacementFilter")
   class DisplacementFilter protected() extends AbstractFilter {
     def this(sprite: Sprite, scale: Double = ???) = this()
 
@@ -1600,20 +1598,20 @@ package filters {
   }
 
   @js.native
-  @JSName("PIXI.filters.DotScreenFilter")
+  @JSGlobal("PIXI.filters.DotScreenFilter")
   class DotScreenFilter extends AbstractFilter {
     var scale: Double = js.native
     var angle: Double = js.native
   }
 
   @js.native
-  @JSName("PIXI.filters.BlurYTintFilter")
+  @JSGlobal("PIXI.filters.BlurYTintFilter")
   class BlurYTintFilter extends AbstractFilter {
     var blur: Double = js.native
   }
 
   @js.native
-  @JSName("PIXI.filters.DropShadowFilter")
+  @JSGlobal("PIXI.filters.DropShadowFilter")
   class DropShadowFilter extends AbstractFilter {
     var blur: Double = js.native
     var blurX: Double = js.native
@@ -1625,31 +1623,31 @@ package filters {
   }
 
   @js.native
-  @JSName("PIXI.filters.GrayFilter")
+  @JSGlobal("PIXI.filters.GrayFilter")
   class GrayFilter extends AbstractFilter {
     var gray: Double = js.native
   }
 
   @js.native
-  @JSName("PIXI.filters.InvertFilter")
+  @JSGlobal("PIXI.filters.InvertFilter")
   class InvertFilter extends AbstractFilter {
     var invert: Double = js.native
   }
 
   @js.native
-  @JSName("PIXI.filters.NoiseFilter")
+  @JSGlobal("PIXI.filters.NoiseFilter")
   class NoiseFilter extends AbstractFilter {
     var noise: Double = js.native
   }
 
   @js.native
-  @JSName("PIXI.filters.PixelateFilter")
+  @JSGlobal("PIXI.filters.PixelateFilter")
   class PixelateFilter extends AbstractFilter {
     var size: Point = js.native
   }
 
   @js.native
-  @JSName("PIXI.filters.RGBSplitFilter")
+  @JSGlobal("PIXI.filters.RGBSplitFilter")
   class RGBSplitFilter extends AbstractFilter {
     var red: Point = js.native
     var green: Point = js.native
@@ -1657,13 +1655,13 @@ package filters {
   }
 
   @js.native
-  @JSName("PIXI.filters.SepiaFilter")
+  @JSGlobal("PIXI.filters.SepiaFilter")
   class SepiaFilter extends AbstractFilter {
     var sepia: Double = js.native
   }
 
   @js.native
-  @JSName("PIXI.filters.ShockwaveFilter")
+  @JSGlobal("PIXI.filters.ShockwaveFilter")
   class ShockwaveFilter extends AbstractFilter {
     var center: js.Array[Double] = js.native
     var params: js.Any = js.native
@@ -1671,7 +1669,7 @@ package filters {
   }
 
   @js.native
-  @JSName("PIXI.filters.TiltShiftAxisFilter")
+  @JSGlobal("PIXI.filters.TiltShiftAxisFilter")
   class TiltShiftAxisFilter extends AbstractFilter {
     var blur: Double = js.native
     var gradientBlur: Double = js.native
@@ -1682,7 +1680,7 @@ package filters {
   }
 
   @js.native
-  @JSName("PIXI.filters.TiltShiftFilter")
+  @JSGlobal("PIXI.filters.TiltShiftFilter")
   class TiltShiftFilter extends AbstractFilter {
     var blur: Double = js.native
     var gradientBlur: Double = js.native
@@ -1691,19 +1689,19 @@ package filters {
   }
 
   @js.native
-  @JSName("PIXI.filters.TiltShiftXFilter")
+  @JSGlobal("PIXI.filters.TiltShiftXFilter")
   class TiltShiftXFilter extends AbstractFilter {
     def updateDelta(): Unit = js.native
   }
 
   @js.native
-  @JSName("PIXI.filters.TiltShiftYFilter")
+  @JSGlobal("PIXI.filters.TiltShiftYFilter")
   class TiltShiftYFilter extends AbstractFilter {
     def updateDelta(): Unit = js.native
   }
 
   @js.native
-  @JSName("PIXI.filters.TwistFilter")
+  @JSGlobal("PIXI.filters.TwistFilter")
   class TwistFilter extends AbstractFilter {
     var offset: Point = js.native
     var radius: Double = js.native
@@ -1725,7 +1723,7 @@ package interaction {
   }
 
   @js.native
-  @JSName("PIXI.interaction.InteractionData")
+  @JSGlobal("PIXI.interaction.InteractionData")
   class InteractionData extends js.Object {
     var global: Point = js.native
     var target: DisplayObject = js.native
@@ -1735,7 +1733,7 @@ package interaction {
   }
 
   @js.native
-  @JSName("PIXI.interaction.InteractionManager")
+  @JSGlobal("PIXI.interaction.InteractionManager")
   class InteractionManager protected() extends js.Object {
     def this(renderer: SystemRenderer, options: js.Any = ???) = this()
 
@@ -1823,7 +1821,7 @@ package loaders {
   }
 
   @js.native
-  @JSName("PIXI.loaders.Loader")
+  @JSGlobal("PIXI.loaders.Loader")
   class Loader protected() extends utils.EventEmitter {
     def this(baseUrl: String, concurrency: Double) = this()
 
@@ -1852,7 +1850,7 @@ package loaders {
   }
 
   @js.native
-  @JSName("PIXI.loaders.Loader")
+  @JSGlobal("PIXI.loaders.Loader")
   object Loader extends js.Object {
     var _pixiMiddleware: js.Array[js.Function] = js.native
 
@@ -1869,7 +1867,7 @@ package loaders {
   }
 
   @js.native
-  @JSName("PIXI.loaders.Resource")
+  @JSGlobal("PIXI.loaders.Resource")
   class Resource protected() extends utils.EventEmitter {
     def this(name: String = ???, url: String | js.Array[String] = ???, options: LoaderOptions = ???) = this()
 
@@ -1891,7 +1889,7 @@ package loaders {
   }
 
   @js.native
-  @JSName("PIXI.loaders.Resource")
+  @JSGlobal("PIXI.loaders.Resource")
   object Resource extends js.Object {
     var LOAD_TYPE: js.Any = js.native
     var XHR_READ_STATE: js.Any = js.native
@@ -1903,7 +1901,7 @@ package loaders {
 package mesh {
 
   @js.native
-  @JSName("PIXI.mesh.Mesh")
+  @JSGlobal("PIXI.mesh.Mesh")
   class Mesh protected() extends Container {
     def this(texture: Texture, vertices: js.Array[Double] = ???, uvs: js.Array[Double] = ???, indices: js.Array[Double] = ???, drawMode: Double = ???) = this()
 
@@ -1935,13 +1933,13 @@ package mesh {
   }
 
   @js.native
-  @JSName("PIXI.mesh.Mesh")
+  @JSGlobal("PIXI.mesh.Mesh")
   object Mesh extends js.Object {
     var DRAW_MODES: js.Any = js.native
   }
 
   @js.native
-  @JSName("PIXI.mesh.Rope")
+  @JSGlobal("PIXI.mesh.Rope")
   class Rope protected() extends Mesh {
     def this(texture: Texture, points: js.Array[Point]) = this()
 
@@ -1956,7 +1954,7 @@ package mesh {
   }
 
   @js.native
-  @JSName("PIXI.mesh.Plane")
+  @JSGlobal("PIXI.mesh.Plane")
   class Plane protected() extends Mesh {
     def this(texture: Texture, segmentsX: Double = ???, segmentsY: Double = ???) = this()
 
@@ -1965,7 +1963,7 @@ package mesh {
   }
 
   @js.native
-  @JSName("PIXI.mesh.MeshRenderer")
+  @JSGlobal("PIXI.mesh.MeshRenderer")
   class MeshRenderer protected() extends ObjectRenderer {
     def this(renderer: WebGLRenderer) = this()
 
@@ -1986,7 +1984,7 @@ package mesh {
 package ticker {
 
   @js.native
-  @JSName("PIXI.ticker.Ticker")
+  @JSGlobal("PIXI.ticker.Ticker")
   class Ticker extends js.Object {
     def _tick(time: Double): Unit = js.native
 
@@ -2022,7 +2020,7 @@ package ticker {
     def update(): Unit = js.native
   }
 
-  @JSName("PIXI.ticker")
+  @JSGlobal("PIXI.ticker")
   @js.native
   object Ticker extends js.Object {
     var shared: Ticker = js.native
@@ -2030,7 +2028,7 @@ package ticker {
 
 }
 
-@JSName("PIXI")
+@JSGlobal("PIXI")
 @js.native
 object Pixi extends js.Object {
   var VERSION: String = js.native
@@ -2048,7 +2046,3 @@ object Pixi extends js.Object {
   var loader: loaders.Loader = js.native
 
 }
-
-
-
-
